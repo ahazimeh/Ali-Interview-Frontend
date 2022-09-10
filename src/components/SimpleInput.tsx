@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useInput from '../hooks/use-input';
+import { nameValidation } from '../validation';
 import InputComponent from './InputComponent';
 interface Props {
     children?: React.ReactNode
@@ -12,7 +13,7 @@ const SimpleInput: React.FC<Props> = (props) => {
         valueChangeHandler: nameChangeHandler,
         inputBlurHandler: nameBlurHandler,
         reset: resetNameInput
-    } = useInput((value) => value.trim() !== '');
+    } = useInput(nameValidation);
     // const [enteredName, setEnteredName] = useState('');
     // const [enteredNameTouched, setEnteredNameTouched] = useState(false)
 
