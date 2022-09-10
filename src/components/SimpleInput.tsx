@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useInput from '../hooks/use-input';
+import InputComponent from './InputComponent';
 interface Props {
     children?: React.ReactNode
 }
@@ -41,11 +42,18 @@ const SimpleInput: React.FC<Props> = (props) => {
         <form onSubmit={formSubmissionHandler}>
             <div className={nameInputClasses}>
                 <label htmlFor="name">Your Name</label>
-                <input type="text" id="name"
+                <InputComponent
+                    enteredName={enteredName}
                     onChange={nameChangeHandler}
                     onBlur={nameBlurHandler}
-                    value={enteredName} />
-                {nameInputHasError && <p className='error-text'>Name must not be empty</p>}
+                    errorMessage="Name must not be empty"
+                    hasError={nameInputHasError}
+                />
+                {/* <input type="text" id="name"
+                    onChange={nameChangeHandler}
+                    onBlur={nameBlurHandler}
+                    value={enteredName} /> */}
+                {/* {nameInputHasError && <p className='error-text'>Name must not be empty</p>} */}
             </div>
             <div className='form-actions'>
                 <button disabled={!formIsValid}>Submit</button>
