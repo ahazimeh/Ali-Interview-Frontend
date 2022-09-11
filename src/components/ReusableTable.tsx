@@ -5,9 +5,20 @@ const ReusableTable = (props: any) => {
             <div>ReusableTable</div>
             <div>
                 <table className="table">
+                    <thead>
+                        {
+
+                            <tr>
+                                {props.tableKeys.map((dataKeys: any) => {
+                                    return <td className={dataKeys.extraClasses}>{dataKeys.name}</td>;
+                                })}
+                            </tr>
+                        }
+                    </thead>
                     <tbody>
 
                         {
+
                             props.data.map((data: any) => {
                                 return (
                                     <tr>
