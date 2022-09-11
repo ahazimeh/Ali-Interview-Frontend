@@ -4,17 +4,27 @@ const ReusableTable = (props: any) => {
         <>
             <div>ReusableTable</div>
             <div>
-                {
-                    props.data.map((data: any) => {
-                        return props.tableKeys.map((dataKeys: any) => {
-                            let x = data;
-                            dataKeys.path.map((keysArray: any, index: any) => {
-                                x = x[dataKeys.path[index]]
+                <table className="table">
+                    <tbody>
+
+                        {
+                            props.data.map((data: any) => {
+                                return (
+                                    <tr>
+                                        {props.tableKeys.map((dataKeys: any) => {
+                                            let x = data;
+                                            dataKeys.path.map((keysArray: any, index: any) => {
+                                                x = x[dataKeys.path[index]]
+                                            })
+                                            console.log(data.extraClasses)
+                                            return <td className={dataKeys.extraClasses}>{x}</td>;
+                                        })}
+                                    </tr>
+                                )
                             })
-                            return x;
-                        })
-                    })
-                }
+                        }
+                    </tbody>
+                </table>
             </div>
         </>
     )
