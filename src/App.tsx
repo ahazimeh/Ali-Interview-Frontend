@@ -1,8 +1,15 @@
 import './App.css';
 import ReusableTable from './components/ReusableTable';
 import SimpleInput from './components/SimpleInput';
+import { tableKeys } from './components/tableKeys';
 
 function App() {
+  // let tableKeys = [
+  //   { name: "id", path: ["id"], extraClasses: "bold" },
+  //   { name: "name", path: ["name"] },
+  //   { name: "email", path: ["email"] },
+  //   { name: "status", path: ["status", "name"] },
+  // ]
   const userData = [
     {
       id: 23123,
@@ -25,7 +32,7 @@ function App() {
   ]
   return (
     <div className="App">
-      <table className="table">
+      {/* <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -54,15 +61,10 @@ function App() {
             <td>@twitter</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
       {/* <SimpleInput /> */}
       <ReusableTable data={userData}
-        tableKeys={[
-          { name: "id", path: ["id"], extraClasses: "bold" },
-          { name: "name", path: ["name"] },
-          { name: "email", path: ["email"] },
-          { name: "status", path: ["status", "name"] },
-        ]} />
+        tableKeys={tableKeys} />
     </div>
   );
 }
